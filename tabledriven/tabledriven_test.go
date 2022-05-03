@@ -33,3 +33,35 @@ func TestDaysOfMonth(t *testing.T) {
 		})
 	}
 }
+
+func TestGetGrade(t *testing.T) {
+	testcases := []struct {
+		score float32
+		grade rune
+	}{
+		{100, 'A'},
+		{99.5, 'A'},
+		{90, 'A'},
+		{89.5, 'B'},
+		{80, 'B'},
+		{75, 'B'},
+		{74.5, 'C'},
+		{69, 'C'},
+		{65, 'C'},
+		{64.5, 'D'},
+		{50, 'D'},
+		{49.5, 'F'},
+		{49, 'F'},
+	}
+
+	for i, tc := range testcases {
+		no := strconv.Itoa(i + 1)
+		t.Run("#"+no, func(t *testing.T) {
+			got := GetGrade(tc.score)
+			want := tc.grade
+			if got != want {
+				t.Fatalf("got: %d, want: %d\n", got, want)
+			}
+		})
+	}
+}
