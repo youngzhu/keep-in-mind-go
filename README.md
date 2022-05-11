@@ -9,6 +9,7 @@
 ## Index
 - 排序
   - [插入排序](sort/insertion.go)
+  - [冒泡排序](sort/bubble.go)
 - [表驱动开发](tabledriven/)
 - 趣味题
   - [约瑟夫环](problem/josephus/josephus.go)
