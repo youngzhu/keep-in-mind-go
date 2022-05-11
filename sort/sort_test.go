@@ -13,13 +13,26 @@ func isSorted(x []int) bool {
 	return true
 }
 
-var testcase = []int{100, 5, 15, 22, 66, 34, 15, 1, 1, 0}
+var testcase = [...]int{100, 5, 15, 22, 66, 34, 15, 1, 1, 0}
 
 func TestInsertionSort(t *testing.T) {
-	t.Log("before:", testcase)
-	InsertionSort(testcase)
-	t.Log("after: ", testcase)
-	if !isSorted(testcase) {
-		t.Fatal("sort fail!")
+	x := testcase
+	t.Log("before:", x)
+	InsertionSort(x[0:])
+	t.Log("after: ", x)
+	if !isSorted(x[0:]) {
+		t.Errorf("sort %v", testcase)
+		t.Errorf(" got %v", x)
+	}
+}
+
+func TestBubbleSort(t *testing.T) {
+	x := testcase
+	t.Log("before:", x)
+	BubbleSort(x[0:])
+	t.Log("after: ", x)
+	if !isSorted(x[0:]) {
+		t.Errorf("sort %v", testcase)
+		t.Errorf(" got %v", x)
 	}
 }
