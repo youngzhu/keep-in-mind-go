@@ -4,6 +4,10 @@ import (
 	"testing"
 )
 
+// testdata
+// array 保证每次排序前都是无序的
+var testcase = [...]int{100, 5, 15, 22, 66, 34, 15, 1, 1, 0}
+
 func isSorted(x []int) bool {
 	for i := 1; i < len(x); i++ {
 		if x[i] < x[i-1] {
@@ -12,8 +16,6 @@ func isSorted(x []int) bool {
 	}
 	return true
 }
-
-var testcase = [...]int{100, 5, 15, 22, 66, 34, 15, 1, 1, 0}
 
 func TestInsertionSort(t *testing.T) {
 	x := testcase
