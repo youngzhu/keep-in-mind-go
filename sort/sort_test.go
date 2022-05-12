@@ -38,3 +38,12 @@ func TestBubbleSort(t *testing.T) {
 		t.Errorf(" got %v", x)
 	}
 }
+
+func TestMergeSort(t *testing.T) {
+	x := testcase
+	MergeSort(x[0:])
+	if !isSorted(x[0:]) {
+		t.Errorf("sort %v", testcase)
+		t.Errorf(" got %v", x)
+	}
+}
