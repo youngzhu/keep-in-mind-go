@@ -12,6 +12,8 @@ func MergeSort(x []int) {
 // 使用一个辅组切片能是算法更简单
 func topDown(x []int) {
 	n := len(x)
+	// 看似多余，只有最后合并的时候才用到
+	// 但是如果不在这里创建，后面会有很多次make
 	aux := make([]int, n)
 	mergeSort(x, aux, 0, n-1)
 }
@@ -27,13 +29,14 @@ func mergeSort(x []int, aux []int, lo int, hi int) {
 }
 
 // 辅助切片的作用体现在这里
+// 通过aux将x[lo...mid]和x[mid+1...hi]合并为有序数组
+// x[lo...mid]和x[mid+1...hi]各自有序
 func merge(x []int, aux []int, lo int, mid int, hi int) {
 	// copy to aux
 	copy(aux, x)
 
 	// merge back to x[]
-	i, j := lo, mid+1
-
+	i, j := lo, mid+1 // 双指针
 	for k := lo; k <= hi; k++ {
 		if i > mid {
 			x[k] = aux[j]
