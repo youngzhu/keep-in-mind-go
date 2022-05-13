@@ -37,19 +37,29 @@ func merge(x []int, aux []int, lo int, mid int, hi int) {
 
 	// merge back to x[]
 	i, j := lo, mid+1 // 双指针
-	for k := lo; k <= hi; k++ {
-		if i > mid {
-			x[k] = aux[j]
-			j++
-		} else if j > hi {
-			x[k] = aux[i]
-			i++
-		} else if aux[j] < aux[i] {
+	k := lo
+	// 交叉
+	for i <= mid && j <= hi {
+		if aux[i] > aux[j] {
 			x[k] = aux[j]
 			j++
 		} else {
 			x[k] = aux[i]
 			i++
 		}
+		k++
+	}
+
+	// 只剩左半边，依次复制
+	for i <= mid {
+		x[k] = aux[i]
+		i++
+		k++
+	}
+	// 只剩右半边，依次复制
+	for j <= hi {
+		x[k] = aux[j]
+		j++
+		k++
 	}
 }
