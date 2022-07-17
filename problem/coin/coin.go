@@ -34,7 +34,7 @@ type change func() int
 func doChange(n, i int) []change {
 	var changes []change
 
-	if n < 0 || i < 0 {
+	if i < 0 {
 		return append(changes, negative())
 	} else if n == 0 {
 		return append(changes, zero())
@@ -43,8 +43,8 @@ func doChange(n, i int) []change {
 		changes = append(changes, f1...)
 
 		left := n - int(coins[i])
-		if left > 0 {
-			f2 := doChange(n-int(coins[i]), i)
+		if left >= 0 {
+			f2 := doChange(left, i)
 			changes = append(changes, f2...)
 		}
 	}
@@ -64,7 +64,14 @@ func zero() change {
 }
 
 func Changes(n int) int {
-	changes := doChange(n, len(coins)-1)
+	idx := len(coins) - 1
+	for idx >= 0 {
+		if n >= int(coins[idx]) {
+			break
+		}
+		idx--
+	}
+	changes := doChange(n, idx)
 
 	count := 0
 	for _, change := range changes {
