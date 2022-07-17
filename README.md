@@ -14,3 +14,4 @@
 - [表驱动开发](tabledriven)
 - 趣味题
   - [约瑟夫环](problem/josephus/josephus.go)
+  - [1美元有多少种支付方式？](problem/coin/coin.go)
