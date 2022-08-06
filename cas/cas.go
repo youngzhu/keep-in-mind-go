@@ -13,7 +13,6 @@ import "sync"
 //
 // 来自《Java并发编程实践》
 
-
 type Simulator struct {
 	value int
 	mu    sync.Mutex

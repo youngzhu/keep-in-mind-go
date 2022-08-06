@@ -12,6 +12,7 @@
   - [冒泡排序/选择排序](sort/bubble.go)
   - [归并排序](sort/merge.go)
 - [表驱动开发](tabledriven)
+- [Compare and Swap](cas)
 - 趣味题
   - [约瑟夫环](problem/josephus/josephus.go)
   - [1美元有多少种支付方式？](problem/coin/coin.go)
