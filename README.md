@@ -11,7 +11,7 @@
   - [插入排序](sort/insertion.go)
   - [冒泡排序/选择排序](sort/bubble.go)
   - [归并排序](sort/merge.go)
-- [表驱动开发](tabledriven)
+- [表驱动开发](tabledriven/tabledriven.go)
 - [比较并交换（CAS）](cas/cas.go)
 - 趣味题
   - [约瑟夫环](problem/josephus/josephus.go)
